@@ -1,7 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+const [form, serForm]= useState({
+name:'',
+people:'',
+date:'',
+message:''
+
+});
+
+const handleInputChange= (event)=>{
+  setForm({
+...form,
+[event.target.name]: event.target.value
+
+  });
+}
+
   return (
     <>
       <div>
@@ -66,10 +82,10 @@ function App() {
             <p className="w3-text-blue-grey w3-large"><b>Catering Service, 42nd Living St, 43043 New York, NY</b></p>
             <p>You can also contact us by phone 00553123-2323 or email catering@catering.com, or you can send us a message here:</p>
             <form action="/action_page.php" target="_blank">
-              <p><input className="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name" /></p>
-              <p><input className="w3-input w3-padding-16" type="number" placeholder="How many people" required name="People" /></p>
-              <p><input className="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required name="date" defaultValue="2020-11-16T20:00" /></p>
-              <p><input className="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements" required name="Message" /></p>
+              <p><input className="w3-input w3-padding-16" type="text" placeholder="Name" required name="name" /></p>
+              <p><input className="w3-input w3-padding-16" type="number" placeholder="How many people" required onChange={handleInputChange} name="people" /></p>
+              <p><input className="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required onChange={handleInputChange} name="date" defaultValue="2020-11-16T20:00" /></p>
+              <p><input className="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements" required onChange={handleInputChange} name="message" /></p>
               <p><button className="w3-button w3-light-grey w3-section" type="submit">SEND MESSAGE</button></p>
             </form>
           </div>
