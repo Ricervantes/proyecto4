@@ -7,7 +7,6 @@ name:'',
 people:'',
 date:'',
 message:''
-
 });
 
 const handleInputChange= (event)=>{
